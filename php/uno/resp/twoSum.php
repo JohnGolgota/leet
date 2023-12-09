@@ -1,5 +1,5 @@
 <?php
-class twoSum {
+class TwoSum {
 
     /**
      * @param int[] $nums
