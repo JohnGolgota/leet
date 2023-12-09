@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.unonew.modules.TwoSum
 import com.example.unonew.ui.theme.UnonewTheme
 
 class MainActivity : ComponentActivity() {
@@ -40,7 +41,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
+    val twosum:IntArray = TwoSum().twoSum(intArrayOf(1, 2, 3, 4, 5), 9)
     UnonewTheme {
-        Greeting("Android")
+        Greeting("Android ${twosum[0]} ${twosum[1]}")
     }
 }
