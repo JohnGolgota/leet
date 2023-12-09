@@ -1,0 +1,16 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "workbench.colorTheme": "Default Dark Modern",
+        "workbench.iconTheme": "vs-seti",
+        "files.associations": {
+            "unordered_map": "cpp",
+            "vector": "cpp",
+            "xhash": "cpp"
+        }
+    }
+}
