@@ -2,11 +2,11 @@
 class twoSum {
 
     /**
-     * @param Integer[] $nums
-     * @param Integer $target
-     * @return Integer[]
+     * @param int[] $nums
+     * @param int $target
+     * @return int[]
      */
-    function twoSum(array $nums, Int $target): array {
+    function twoSum(array $nums, int $target): array {
         $map = [];
         foreach ($nums as $key => $value) {
             $map[$value] = $key;
