@@ -3,24 +3,24 @@
 #include <string>
 #include <vector>
 
-#include "TwoSum.h"
+#include "AddTwoNumbers.h"
 
 int main()
 {
-    std::string name;
-    std::cout << "What is your name? ";
-    getline(std::cin, name);
-    std::cout << "Hello, " << name << "!\n";
-    int target = 9;
-    std::vector<int> nums = {2, 7, 11, 15};
-    TwoSum s;
-    std::vector<int> result = s.twoSum(nums, target);
-    if (!result.empty())
+    ListNode *l1 = new ListNode(2);
+    l1->next = new ListNode(4);
+    l1->next->next = new ListNode(3);
+
+    ListNode *l2 = new ListNode(5);
+    l2->next = new ListNode(6);
+    l2->next->next = new ListNode(4);
+
+    AddTwoNumbers s;
+    ListNode *result = s.addTwoNumbers(l1, l2);
+    while (result != nullptr)
     {
-        std::cout << "Indices que suman " << target << ": [" << result[0] << ", " << result[1] << "]\n";
+        std::cout << result->val << " -> ";
+        result = result->next;
     }
-    else
-    {
-        std::cout << "No se encontraron índices que sumen " << target << ".\n";
-    }
+    std::cout << "null\n";
 }
