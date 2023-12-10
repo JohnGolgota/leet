@@ -2,10 +2,17 @@ package main
 
 import (
 	"fmt"
-	"uno.com/leet/pkg/twoSum"
 	"uno.com/leet/pkg/AddTwoNumbers"
 )
 
 func main() {
-	fmt.Println(twoSum([]int{2, 7, 11, 15}, 9))
+	l1 := &AddTwoNumbers.ListNode{Val: 2}
+	l1.Next = &AddTwoNumbers.ListNode{Val: 4}
+	l1.Next.Next = &AddTwoNumbers.ListNode{Val: 3}
+	l2 := &AddTwoNumbers.ListNode{Val: 5}
+	l2.Next = &AddTwoNumbers.ListNode{Val: 6}
+	l2.Next.Next = &AddTwoNumbers.ListNode{Val: 4}
+	result := AddTwoNumbers.AddTwoNumbers(l1, l2)
+	fmt.Println(result.Val)
+	fmt.Println("Hello, world.")
 }

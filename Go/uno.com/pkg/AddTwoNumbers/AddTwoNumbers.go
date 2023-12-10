@@ -1,6 +1,6 @@
 package AddTwoNumbers
 
-func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	var head, tail *ListNode
 	var carry int
 	for l1 != nil || l2 != nil || carry != 0 {
@@ -31,7 +31,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	} // for>
 	return head
 }
-func addTwoNumbers2(l1 *ListNode, l2 *ListNode) *ListNode {
+func AddTwoNumbers2(l1 *ListNode, l2 *ListNode) *ListNode {
 	stepOn := 0
 	var result = ListNode{}
 	var head = &result
