@@ -90,3 +90,11 @@ var addTwoNumbersRobada = function (l1, l2) {
 };
 export { ListNode, addTwoNumbers };
 
+// import { ListNode, addTwoNumbers } from "./AddTwoNumbers/index.mjs";
+
+// let l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
+// let l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+
+// let result = addTwoNumbers(l1, l2); // [7, 0, 8]
+
+// console.log(result);
