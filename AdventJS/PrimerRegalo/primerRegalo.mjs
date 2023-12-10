@@ -31,7 +31,7 @@ function findFirstRepeated(gifts) {
         map.push(gift)
     }
     return -1
-    // Iterar sobre el array
+    // Iterar sobre el array y... ahí vemos xq
 }
 
 export default findFirstRepeated
