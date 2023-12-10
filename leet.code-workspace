@@ -10,7 +10,8 @@
         "files.associations": {
             "unordered_map": "cpp",
             "vector": "cpp",
-            "xhash": "cpp"
+            "xhash": "cpp",
+            "xstring": "cpp"
         },
     }
 }
