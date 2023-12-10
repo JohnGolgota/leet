@@ -1,7 +1,7 @@
-import { twoSum } from "./resp/TwoSum";
+import { addTwoNumbers, ListNode } from "./resp/AddTwoNumbers";
 
-const nums = [2, 7, 11, 15];
-const target = 9;
-const result = twoSum(nums, target);
+const l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
+const l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+const result = addTwoNumbers(l1, l2);
 
 console.log(result);
