@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/Uno/pkg/twoSum"
+	"uno.com/leet/pkg/twoSum"
+	"uno.com/leet/pkg/AddTwoNumbers"
 )
 
 func main() {
