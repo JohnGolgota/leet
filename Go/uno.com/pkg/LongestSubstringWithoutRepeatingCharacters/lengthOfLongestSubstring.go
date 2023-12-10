@@ -22,3 +22,27 @@ func lengthOfLongestSubstring(s string) int {
 	}
 	return max
 }
+
+func lengthOfLongestSubstring2(s string) int {
+    left, right := 0, 0
+    res := 0
+    // pwwkew
+    for right < len(s) {
+        // check duplicates in [left, right]
+        duplicate := -1
+        for i := left; i < right; i++ {
+            if s[i] == s[right] {
+                duplicate = i
+            }
+        }
+        // if there is duplicate - move left = duplicate + 1 
+        if duplicate != -1 {
+            left = duplicate + 1
+        }
+        if right - left + 1 > res {
+          res = right - left + 1
+        }
+        right++
+    }
+    return res
+}
