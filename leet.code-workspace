@@ -13,5 +13,18 @@
             "xhash": "cpp",
             "xstring": "cpp"
         },
+        "turboConsoleLog.includeFileNameAndLineNum": false,
+        "turboConsoleLog.insertEnclosingClass": false,
+        "turboConsoleLog.insertEnclosingFunction": false,
+        "turboConsoleLog.addSemicolonInTheEnd": false,
+        "turboConsoleLog.delimiterInsideMessage": "~",
+        "turboConsoleLog.insertEmptyLineAfterLogMessage": false,
+        "turboConsoleLog.insertEmptyLineBeforeLogMessage": false,
+        "turboConsoleLog.logFunction": "log",
+        "turboConsoleLog.logMessageSuffix": ":",
+        "turboConsoleLog.logType": "log",
+        "turboConsoleLog.quote": "\"",
+        "turboConsoleLog.wrapLogMessage": false,
+        "turboConsoleLog.logMessagePrefix": ""
     }
 }
