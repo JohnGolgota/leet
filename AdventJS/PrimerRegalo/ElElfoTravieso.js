@@ -3,18 +3,21 @@
 // Tienes la secuencia original de pasos en la fabricación original y la secuencia modificada modified que puede incluir un paso extra o faltar un paso.
 
 // Tu tarea es escribir una función que identifique y devuelva el primer paso extra que se ha añadido o eliminado en la cadena de fabricación.Si no hay ninguna diferencia entre las secuencias, devuelve una cadena vacía.
-
+let res = 'a'
 const original = 'abcd'
 const modified = 'abcde'
-// findNaughtyStep(original, modified) // 'e'
+res = findNaughtyStep(original, modified) // 'e'
+console.log("res:", res)
 
-// const original = 'stepfor'
-// const modified = 'stepor'
-// findNaughtyStep(original, modified) // 'f'
+const original2 = 'stepfor'
+const modified2 = 'stepor'
+res = findNaughtyStep(original2, modified2) // 'f'
+console.log("res:", res)
 
-// const original = 'abcde'
-// const modified = 'abcde'
-// findNaughtyStep(original, modified) // ''
+const original3 = 'abcde'
+const modified3 = 'abcde'
+res = findNaughtyStep(original3, modified3) // ''
+console.log("res:", res)
 // A tener en cuenta:
 
 // Siempre habrá un paso de diferencia o ninguno.
@@ -54,7 +57,19 @@ function findNaughtyStep(original, modified) {
   return naughtyStep
 }
 
-const res = findNaughtyStep(original, modified)
+function findNaughtyStep2(original, modified) {
+  if (original === modified) return ''
+
+  const iterate = original.length > modified.length ? original : modified
+
+  for (let i = 0; i < iterate.length; i++) {
+    if (original[i] !== modified[i]) {
+      return iterate[i]
+    }
+  }
+}
+
+res = findNaughtyStep2(original, modified)
 console.log(res)
 
 export default findNaughtyStep
