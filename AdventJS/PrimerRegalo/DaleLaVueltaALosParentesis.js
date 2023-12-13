@@ -7,11 +7,11 @@
 const a = decode('hola (odnum)')
 console.log(a) // hola mundo
 
-const b = decode('(olleh) (dlrow)!')
-console.log(b) // hello world!
+// const b = decode('(olleh) (dlrow)!')
+// console.log(b) // hello world!
 
-const c = decode('sa(u(cla)atn)s')
-console.log(c) // santaclaus
+// const c = decode('sa(u(cla)atn)s')
+// console.log(c) // santaclaus
 
 
 // Paso a paso:
@@ -32,43 +32,43 @@ function decode(message) {
   // Repetir hasta que no queden paréntesis
   const messageArray = message.split('')
   console.log("messageArray:", messageArray)
-  const openIndex = messageArray.indexOf('(')
+  const openIndex = messageArray.indexOf('(', 5)
   console.log("openIndex:", openIndex)
-  const presviousOpenIndex = messageArray.slice(openIndex + 1)
-  console.log("presviousOpenIndex:", presviousOpenIndex)
+  // const presviousOpenIndex = messageArray.slice(openIndex + 1)
+  // console.log("presviousOpenIndex:", presviousOpenIndex)
   if (openIndex === -1) {
     return message
   }
-  const innerOpenIndex = decode(presviousOpenIndex.join(''))
-  console.log("innerOpenIndex:", innerOpenIndex)
+  // const innerOpenIndex = decode(presviousOpenIndex.join(''))
+  // console.log("innerOpenIndex:", innerOpenIndex)
 
 
-  return presviousOpenIndex
+  // return presviousOpenIndex
 }
 
-// Detectar si hay paréntesis
-const hasParenthesis = message.includes('(')
-if (hasParenthesis) {
-  // Detectar si hay paréntesis anidados
-  const hasNestedParenthesis = message.includes('((')
-  if (hasNestedParenthesis) {
-    // Invertir los paréntesis anidados
-    const nestedParenthesis = message.match(/\(\w+\)/g)
-    const nestedParenthesisReversed = nestedParenthesis.map(parenthesis => {
-      return parenthesis.split('').reverse().join('')
-    })
-    // Invertir los paréntesis que quedan
-    const messageWithoutNestedParenthesis = message.replace(/\(\w+\)/g, '')
-    const messageReversed = messageWithoutNestedParenthesis.split('').reverse().join('')
-    // Unir los paréntesis anidados invertidos con los paréntesis que quedan invertidos
-    const result = messageReversed.replace(/\(\)/g, '')
-    return result
-  } else {
-    // Invertir los paréntesis que quedan
-    const messageReversed = message.split('').reverse().join('')
-    // Unir los paréntesis anidados invertidos con los paréntesis que quedan invertidos
-    const result = messageReversed.replace(/\(\)/g, '')
-    return result
-  }
-}
-return ''
+// // Detectar si hay paréntesis
+// const hasParenthesis = message.includes('(')
+// if (hasParenthesis) {
+//   // Detectar si hay paréntesis anidados
+//   const hasNestedParenthesis = message.includes('((')
+//   if (hasNestedParenthesis) {
+//     // Invertir los paréntesis anidados
+//     const nestedParenthesis = message.match(/\(\w+\)/g)
+//     const nestedParenthesisReversed = nestedParenthesis.map(parenthesis => {
+//       return parenthesis.split('').reverse().join('')
+//     })
+//     // Invertir los paréntesis que quedan
+//     const messageWithoutNestedParenthesis = message.replace(/\(\w+\)/g, '')
+//     const messageReversed = messageWithoutNestedParenthesis.split('').reverse().join('')
+//     // Unir los paréntesis anidados invertidos con los paréntesis que quedan invertidos
+//     const result = messageReversed.replace(/\(\)/g, '')
+//     return result
+//   } else {
+//     // Invertir los paréntesis que quedan
+//     const messageReversed = message.split('').reverse().join('')
+//     // Unir los paréntesis anidados invertidos con los paréntesis que quedan invertidos
+//     const result = messageReversed.replace(/\(\)/g, '')
+//     return result
+//   }
+// }
+// return ''
