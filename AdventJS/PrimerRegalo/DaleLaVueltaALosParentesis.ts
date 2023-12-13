@@ -72,3 +72,36 @@ function decode(message) {
 //   }
 // }
 // return ''
+
+// function decode(message: string) {
+//   const messageArray = message.split('')
+//   console.log("message:", message)
+//   console.log("messageArray:", messageArray)
+
+//   const openParenthesis = messageArray.indexOf('(')
+//   console.log("message:", message)
+//   console.log("openParenthesis:", openParenthesis)
+
+//   if (openParenthesis === -1) {
+//     return message
+//   }
+
+//   const messageInParenthesis = messageArray.slice(openParenthesis + 1)
+//   console.log("message:", message)
+//   console.log("messageInParenthesis:", messageInParenthesis)
+
+//   const recursiveResult = decode(messageInParenthesis.join(''))
+//   console.log("message:", message)
+//   console.log("recursiveResult:", recursiveResult)
+
+//   const closeParenthesis = recursiveResult.split('')
+//   console.log("message:", message)
+//   console.log("closeParenthesis:", closeParenthesis)
+
+//   const closeParenthesisIndex = closeParenthesis.reverse()
+//   console.log("message:", message)
+//   console.log("closeParenthesisIndex:", closeParenthesisIndex)
+
+//   let result = message.join
+//   return result
+// }
