@@ -45,4 +45,12 @@ function manufacture(gifts, materials) {
 
 console.log(manufacture(gifts, materials))
 
+function manufacture2(gifts, materials) {
+  return gifts.filter(gift => {
+    return gift.split('').every(letter => {
+      return materials.includes(letter)
+    })
+  })
+}
+
 export default manufacture
