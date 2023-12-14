@@ -4,15 +4,17 @@
 
 // Eso sí, ten en cuenta que pueden existir paréntesis anidados, por lo que debes invertir los caracteres en el orden correcto.
 
-const a = decode('hola (odnum)')
-console.log(a) // hola mundo
+// const a = decode('hola (odnum)')
+// console.log(a) // hola mundo
 
 // const b = decode('(olleh) (dlrow)!')
 // console.log(b) // hello world!
 
-// const c = decode('sa(u(cla)atn)s')
-// console.log(c) // santaclaus
+const c = decode('sa(u(cla)atn)s')
+console.log(c) // santaclaus
 
+const d = decode('s(u(l3 al)c(a)tn)(as)')
+console.log(d) // santaclaus
 
 // Paso a paso:
 // 1. Invertimos el anidado -> sa(ualcatn)s
@@ -23,28 +25,40 @@ console.log(a) // hola mundo
 // En el mensaje final no deben quedar paréntesis.
 // El nivel máximo de anidamiento es 2.
 
-function decode(message) {
-  // Detectar (
-  // Detectar ( otra vez de forma recursiva y guardar el índice
-  // Detectar ) y guardar el índice
-  // Invertir el mensaje entre los dos índices
-  // Quitar los paréntesis
-  // Repetir hasta que no queden paréntesis
-  const messageArray = message.split('')
-  console.log("messageArray:", messageArray)
-  const openIndex = messageArray.indexOf('(', 5)
-  console.log("openIndex:", openIndex)
-  // const presviousOpenIndex = messageArray.slice(openIndex + 1)
-  // console.log("presviousOpenIndex:", presviousOpenIndex)
-  if (openIndex === -1) {
+function decode(message: string) {
+  const match = message.match(/\(([^()]+)\)/g)
+  if (!match) {
     return message
   }
-  // const innerOpenIndex = decode(presviousOpenIndex.join(''))
-  // console.log("innerOpenIndex:", innerOpenIndex)
-
-
-  // return presviousOpenIndex
+  match.map(m => {
+    const sanitized = m.split('').reverse().join('').replace(/\(|\)/g, '')
+    message = message.replace(m, sanitized)
+  })
+  message = decode(message)
+  return message
 }
+// function decode(message) {
+//   // Detectar (
+//   // Detectar ( otra vez de forma recursiva y guardar el índice
+//   // Detectar ) y guardar el índice
+//   // Invertir el mensaje entre los dos índices
+//   // Quitar los paréntesis
+//   // Repetir hasta que no queden paréntesis
+//   const messageArray = message.split('')
+//   console.log("messageArray:", messageArray)
+//   const openIndex = messageArray.indexOf('(', 5)
+//   console.log("openIndex:", openIndex)
+//   // const presviousOpenIndex = messageArray.slice(openIndex + 1)
+//   // console.log("presviousOpenIndex:", presviousOpenIndex)
+//   if (openIndex === -1) {
+//     return message
+//   }
+//   // const innerOpenIndex = decode(presviousOpenIndex.join(''))
+//   // console.log("innerOpenIndex:", innerOpenIndex)
+
+
+//   // return presviousOpenIndex
+// }
 
 // // Detectar si hay paréntesis
 // const hasParenthesis = message.includes('(')
