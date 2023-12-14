@@ -12,7 +12,7 @@
             "vector": "cpp",
             "xhash": "cpp",
             "xstring": "cpp"
-        }
+        },
         "turboConsoleLog.includeFileNameAndLineNum": false,
         "turboConsoleLog.insertEnclosingClass": false,
         "turboConsoleLog.insertEnclosingFunction": false,
