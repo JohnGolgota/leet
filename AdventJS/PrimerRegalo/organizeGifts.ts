@@ -44,7 +44,9 @@ function organizeGifts(gifts:string) {
     const left = qty - (pallets * 50) - (boxes * 10);
     // console.log("left:", left)
 
-    res += `[${type}]`.repeat(pallets) + `{${type}}`.repeat(boxes) + `(${type.repeat(left)})`.repeat(bag);
+    res += `[${type}]`.repeat(pallets)
+    res += `{${type}}`.repeat(boxes)
+    res += `(${type.repeat(left)})`.repeat(bag);
   }
 
 
