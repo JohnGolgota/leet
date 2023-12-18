@@ -10,7 +10,8 @@ function cyberReindeer(road:string, time:number) {
     let lastChar = '.'
     // console.log("🚀 ~ lastChar:", lastChar)
     for (let i = 0; i < time; i++){
-        if (i === 5) road = road.replaceAll('|', '*')
+        if (i === 5) road = road.replace('|', '*')
+        // Ahora no sirve pero puto error de sintaxis
         // console.log("🚀 ~ road:", road)
 
         const matches = road.match(/S[\*\.]/g)
