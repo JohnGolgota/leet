@@ -40,14 +40,87 @@ Good luck!
 const MIN_CELL = 0;
 const MAX_CELL = 255;
 
-function translate() {
+const clamp = (value, min, max) => {
+    if (value < min) {
+        return max;
+    }
+    if (value > max) {
+        return min;
+    }
+    return value;
+}
+
+function translate(input) {
     const memory = [0]
 
     let pointer = 0;
     let index = 0;
     let output = '';
 
-    return 'Hello';
+    const arrayFromInput = Array.from(input);
+
+    const actions = {
+        '👉': () => pointer++,
+        '👈': () => pointer--,
+        '👆': () => {
+            memory[pointer] = memory[pointer] === MAX_CELL ? MIN_CELL : memory[pointer] + 1;
+        },
+        '👇': () => {
+            memory[pointer] = memory[pointer] === MIN_CELL ? MAX_CELL : memory[pointer] - 1;
+        },
+        '🤜': () => {
+            if (memory[pointer] === MIN_CELL) {
+                let count = 1;
+                let i = index + 1;
+                while (arrayFromInput.length > i) {
+                    const action = arrayFromInput[i];
+                    if (action === '🤜') {
+                        count++;
+                    } else if (action === '🤛') {
+                        count--;
+                    }
+                    if (count === 0) {
+                        index = i;
+                        break;
+                    }
+                    i++;
+                }
+
+            }
+        },
+        '🤛': () => {
+            if (memory[pointer] !== MIN_CELL) {
+                let count = 1;
+                let i = index - 1;
+                while (i >= 0) {
+                    const action = arrayFromInput[i];
+                    if (action === '🤜') {
+                        count--;
+                    } else if (action === '🤛') {
+                        count++;
+                    }
+                    if (count === 0) {
+                        index = i;
+                        break;
+                    }
+                    i--;
+                };
+            }
+        },
+        '👊': () => {
+
+            output += String.fromCharCode(memory[pointer]);
+        }
+    }
+
+    while (index < arrayFromInput.length) {
+        const action = arrayFromInput[index];
+        actions[action]();
+        index++;
+    }
+
+    console.log("output:", output)
+    return output;
 }
 
 export {
