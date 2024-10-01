@@ -7,7 +7,8 @@
   "scripts": {
     "test": "vitest",
     "test:commit": "vitest --watch=false",
-    "prepare": "husky"
+    "prepare": "husky",
+    "start:advent": "tsnd --respawn AdventJS/main.ts"
   },
   "lint-staged": {
     "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}": [
