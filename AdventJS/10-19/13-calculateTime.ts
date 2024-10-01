@@ -1,11 +1,22 @@
 function calculateTime(deliveries: string[]) {
-	const deliveriesDuration = deliveries.map((delivery) => {
-		const [hours, minutes, seconds] = delivery.split(":").map(Number);
-		return hours * 3600 + minutes * 60 + seconds;
-	});
+	const deliveriesDuration = deliveries.reduce((acc, time) => {
+		const [hours, minutes, seconds] = time.split(":").map(Number);
+		return acc + hours * 3600 + minutes * 60 + seconds;
+	}, 0);
 	const contemplateTravelDuration = 7 * 3600;
-	// const diff = contemplateTravelDuration - deliveriesDuration
-	return "00:00:00";
+	const diff = Math.abs(contemplateTravelDuration - deliveriesDuration);
+	const sign = contemplateTravelDuration <= deliveriesDuration ? "" : "-";
+
+	const hours = Math.floor(diff / 3600);
+	const minutes = Math.floor((diff % 3600) / 60);
+	const seconds = diff % 60;
+
+	let r = sign;
+	r += hours < 10 ? `0${hours}` : `${hours}`;
+	r += minutes < 10 ? `:0${minutes}` : `:${minutes}`;
+	r += seconds < 10 ? `:0${seconds}` : `:${seconds}`;
+
+	return r;
 }
 
 export { calculateTime };
