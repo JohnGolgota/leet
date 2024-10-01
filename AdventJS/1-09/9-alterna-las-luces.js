@@ -5,8 +5,29 @@
 // Nos han pedido que escribamos una función adjustLights que, dado un array de strings con el color de cada luz (representados con los emojis 🔴 para el rojo y 🟢 para el verde), devuelva el número mínimo de luces que hay que cambiar para que estén los colores alternos.
 
 function adjustLights(lights) {
-  // Code here
-  return 0
+  let chagesL = 0
+  let chagesR = 0
+  let spectedNext = lights[0] === '🔴' ? '🟢' : '🔴'
+
+  for (let i = 1; i < lights.length; i++) {
+    if (lights[i] !== spectedNext) {
+      chagesL++
+    }
+    spectedNext = spectedNext === '🔴' ? '🟢' : '🔴'
+  }
+
+  let lightsR = lights.reverse()
+  spectedNext = spectedNext = lightsR[0] === '🔴' ? '🟢' : '🔴'
+  for (let i = 1; i < lights.length; i++) {
+    if (lightsR[i] !== spectedNext) {
+      chagesR++
+    }
+    spectedNext = spectedNext === '🔴' ? '🟢' : '🔴'
+  }
+
+  let chages = Math.min(chagesR, chagesL)
+
+  return chages
 }
 
 // Test
