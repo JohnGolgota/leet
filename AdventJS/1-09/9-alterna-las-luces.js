@@ -30,6 +30,26 @@ function adjustLights(lights) {
   return chages
 }
 
+// otro intento
+function adjustLights(lights) {
+  function checkLights(lights) {
+    let chages = 0
+    for (let i = 1; i < lights.length; i++) {
+      if (lights[i] === lights[i - 1]) {
+        chages++
+        lights[i] = lights[i] === '🔴' ? '🟢' : '🔴'
+      }
+    }
+    return chages
+  }
+
+  let chagesL = checkLights([...lights])
+  let chagesR = checkLights([...lights].reverse())
+
+  let chages = Math.min(chagesL, chagesR)
+  return chages
+}
+
 // Test
 console.log(
   adjustLights(['🟢', '🔴', '🟢', '🟢', '🟢'])
