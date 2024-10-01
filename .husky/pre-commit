@@ -1,2 +1,2 @@
-pnpm test
+pnpm test:commit
 lint-staged
