@@ -20,18 +20,18 @@
 // }
 
 function maxGifts(houses: number[]) {
-	let incluir = 0;
-	let excluir = 0;
-	let noIncluirAnterior: number;
+	let include = 0;
+	let exclude = 0;
+	let notIncludeBefore: number;
 
 	for (const h of houses) {
-		noIncluirAnterior = [excluir, incluir][+(incluir > excluir)];
+		notIncludeBefore = [exclude, include][+(include > exclude)];
 
-		incluir = excluir + h;
-		excluir = noIncluirAnterior;
+		include = exclude + h;
+		exclude = notIncludeBefore;
 	}
 
-	return [excluir, incluir][+(incluir > excluir)];
+	return [exclude, include][+(include > exclude)];
 }
 
 export { maxGifts };
