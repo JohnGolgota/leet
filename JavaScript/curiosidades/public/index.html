@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broadcast</title>
+</head>
+
+<body>
+    <h1>Cuenta sincronizada</h1>
+    <div id="contador">0</div>
+    <button id="increment">Incrementar</button>
+
+    <script type="module">
+        let count = 3
+
+        contador.textContent = count
+
+        function updateCount(newValue) {
+            count = newValue
+            contador.textContent = count
+        }
+
+        const channel = new BroadcastChannel("count-channel")
+
+        increment.addEventListener("click", () => {
+            count++
+            updateCount(count)
+
+            channel.postMessage(count)
+        })
+
+        channel.onmessage = (e) => {
+            const newValue = e.data
+            updateCount(newValue)
+        }
+    </script>
+</body>
+
+</html>
